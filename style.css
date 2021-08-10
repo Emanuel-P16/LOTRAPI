@@ -1,0 +1,18 @@
+.movieContainer{
+    height: 200px;
+    width: 200px;
+}
+.movie{
+    padding-top: 10px;  
+    height: 300px;
+    width: 300px;
+}
+
+.movie img{
+    max-width: 100%;
+    max-height: 80%  ;
+}
+.movieDetails{
+  width: 300px;
+
+}

@@ -1,12 +1,10 @@
 APIKEYLOTR ="JbeNSOlKgmtXkourFWex "
 APIURLLOTR ="https://the-one-api.dev/v2/movie"
-APIKEYOMDB ="bfe5262b"
-APIURLOMBD ="http://www.omdbapi.com/?t=The+Hobbit%3A+An+Unexpected+Journey&apikey=bfe5262b"
+APIKEYOMDB ="&apikey=bfe5262b"
+APIURLOMBD ="http://www.omdbapi.com/?t="
 //http://www.omdbapi.com/?t=The+Hobbit%3A+An+Unexpected+Journey
 //"http://www.omdbapi.com/?apikey=bfe5262b&?t=The+Hobbit%3A+An+Unexpected+Journey"
-
 const movieContainer = document.querySelector(".movieContainer")
-const movieList = document.querySelector(".movieList")
 
 async function getMovies(){
     const resp = await fetch(APIURLLOTR,{
@@ -16,34 +14,35 @@ async function getMovies(){
     }
     });
     const respData = await resp.json();
-    console.log(respData)
-   /*for (let index = 0; index < respData.docs.length; index++) {
-       const element = respData.docs[index].name;
-       newLi = document.createElement("li")
-       newLi.className = "elementList"
-       newLi.innerText = element
-       movieList.appendChild(newLi) 
-       console.log(element)
-   }*/
-  
-   respData.docs.forEach((movie) => {
-    //console.log(movie)
+    respData.docs.forEach((movie) => {
     const element = movie.name;
-    newLi = document.createElement("li")
-    newLi.className = "elementList"
-    newLi.innerText = element
-    movieList.appendChild(newLi) 
-   
+    getImageMovie(element)
+    //console.log(respDataOMBD)
+  
    });
-    //title.innerHTML = respData.docs[0].name
-    return respData
+  
 }
 
-async function getImageMovie(){
-    const resp = await fetch(APIURLOMBD)
-    respData = await resp.json()
-    console.log(respData)
-    return respData
+async function getImageMovie(element){
+    let searchInput = element
+    const resp = await fetch(`${APIURLOMBD}${searchInput}${APIKEYOMDB}`)
+    respDataOMBD = await resp.json()
+   //console.log(respDataOMBD)
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("movie");
+    //console.log(respDataOMBD.Title)
+    if (respDataOMBD.Title === undefined)  {
+        console.log("llegue acá")
+    }else {
+    newDiv.innerHTML = ` 
+    <img src=${respDataOMBD.Poster} alt="">
+    <div class="movieDetails">
+        <h3>${respDataOMBD.Title}</h3>
+        <span>${respDataOMBD.Metascore}</span>`
+        //movieContainer.appendChild(newDiv)
+        document.body.appendChild(newDiv)
+    }
 }
-//getMovies()
-getImageMovie()
+getMovies()
+
+
