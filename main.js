@@ -1,13 +1,16 @@
 APIKEYLOTR ="JbeNSOlKgmtXkourFWex "
-APIURLLOTR ="https://the-one-api.dev/v2/movie"
+APIURLLORDMOVIES ="https://the-one-api.dev/v2/movie"
+APIURLLORDBOOKS ="https://the-one-api.dev/v2/book"
+APIURLLORDCHARACTER ="https://the-one-api.dev/v2/character"
 APIKEYOMDB ="&apikey=bfe5262b"
-APIURLOMBD ="https://www.omdbapi.com/?t="
+APIURLOMBD ="http://www.omdbapi.com/?t="
 //http://www.omdbapi.com/?t=The+Hobbit%3A+An+Unexpected+Journey
 //"http://www.omdbapi.com/?apikey=bfe5262b&?t=The+Hobbit%3A+An+Unexpected+Journey"
 const movieContainer = document.querySelector(".movieContainer")
-
+const generalContainer = document.querySelector(".generalContainer")
 async function getMovies(){
-    const resp = await fetch(APIURLLOTR,{
+    const resp = await fetch(APIURLLORDMOVIES
+    ,{
         headers:{ 
     'Accept': 'application/json',
     'Authorization': 'Bearer JbeNSOlKgmtXkourFWex ',    
@@ -34,7 +37,8 @@ async function getImageMovie(element){
     if (respDataOMBD.Title === undefined)  {
         console.log("llegue acá")
     }else {
-    newDiv.innerHTML = ` 
+        render(respDataOMBD,"movies")
+    /*newDiv.innerHTML = ` 
     
     <img src=${respDataOMBD.Poster} alt="">
     <div class="movieDetails">
@@ -42,9 +46,64 @@ async function getImageMovie(element){
         <span>${respDataOMBD.Metascore}</span>
         `
         //movieContainer.appendChild(newDiv)
-        movieContainer.appendChild(newDiv)
+        movieContainer.appendChild(newDiv)*/
     }
 }
+async function getBooks(){
+  
+    const resp = await fetch(APIURLLORDBOOKS
+        ,{
+            headers:{ 
+        'Accept': 'application/json',
+        'Authorization': 'Bearer JbeNSOlKgmtXkourFWex ',    
+        }
+        });
+        const respData = await resp.json();
+        render(respData,"books");
+}
+// crear funcion de renderizado para no tener tanto codigo basura
+// crear un slider para cada "seccion" 
+// al realizar un HOVER que aparezcan los datos tecnicos de cada elemento hovereado
+//getMovies()
+async function render(object,type){
+    let imageSource = "https://images-na.ssl-images-amazon.com/images/I/91rq1j7GYhL.jpg"
+    newContainer = document.createElement("div");
+    newContainer.classList.add(`${type}`+"Container");
+   if (type === "books") {
+        object.docs.forEach((objectInfo) =>{
+        
+        newContainer.innerHTML = newContainer.innerHTML + `
+         <div class=${type}>
+         <img src=${imageSource} alt="">
+            <div class="${type}details"
+                <h3>${objectInfo.name}</h3>
+                <span></span>
+            </div>
+         </div>
+        `
+
+        })
+    } else {
+        
+            console.log(object)
+            newContainer.innerHTML = newContainer.innerHTML + `
+             <div class=${type}>
+             <img src=${object.Poster} alt="">
+                <div class="${type}details"
+                    <h3>${object.Title}</h3>
+                    <span></span>
+                </div>
+             </div>
+            `
+    
+            
+    }
+   
+    generalContainer.appendChild(newContainer)
+
+
+}
 getMovies()
+//getBooks()
 
 

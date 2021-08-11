@@ -1,30 +1,66 @@
-.movieContainer{
+body{
+    background-color: grey;
+}
+.moviesContainer{
     height: 250px;
     width: 300px;
     display: flex;
+    gap: 0.5px;
 }
-.movie{
-    height: 140px;
-    width: 250px;
+.movies{
+    height: 202px;
+    width: 300px;
     background-color: grey;
 }
 
-.movie img{
-    height: 140px;
-    width: 250px;
+.movies img{
+    height: 200px;
+    width: 300px;
     
-    padding-top: 5px;
-    border-radius: 5px 5px 5px 5px;
+    padding-top: 2px;
+    border-radius: 10px;
    
 }
-.movie img:hover{
+.movies img:hover{
    transform: scale(1.5);
 }
-.movieDetails{
+.moviesDetails{
    
   width: 200px;
 
 }
-.movieDetails h3{
+.moviesDetails h3{
+    margin: 0px;
+}
+
+.booksContainer{
+    height: 250px;
+    width: 300px;
+    display: flex;
+    gap: 0.5px;
+}
+.books{
+    height: 202px;
+    width: 300px;
+    background-color: grey;
+}
+
+.books img{
+    height: 200px;
+    width: 300px;
+    
+    padding-top: 2px;
+    border-radius: 10px;
+   
+}
+.books img:hover{
+   transform: scale(1.5);
+}
+.booksDetails{
+   
+  width: 200px;
+
+}
+.booksDetails h3{
     margin: 0px;
 }
