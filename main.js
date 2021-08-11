@@ -35,12 +35,14 @@ async function getImageMovie(element){
         console.log("llegue acá")
     }else {
     newDiv.innerHTML = ` 
+    
     <img src=${respDataOMBD.Poster} alt="">
     <div class="movieDetails">
         <h3>${respDataOMBD.Title}</h3>
-        <span>${respDataOMBD.Metascore}</span>`
+        <span>${respDataOMBD.Metascore}</span>
+        `
         //movieContainer.appendChild(newDiv)
-        document.body.appendChild(newDiv)
+        movieContainer.appendChild(newDiv)
     }
 }
 getMovies()

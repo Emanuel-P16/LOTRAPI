@@ -1,18 +1,30 @@
 .movieContainer{
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 300px;
+    display: flex;
 }
 .movie{
-    padding-top: 10px;  
-    height: 300px;
-    width: 300px;
+    height: 140px;
+    width: 250px;
+    background-color: grey;
 }
 
 .movie img{
-    max-width: 100%;
-    max-height: 80%  ;
+    height: 140px;
+    width: 250px;
+    
+    padding-top: 5px;
+    border-radius: 5px 5px 5px 5px;
+   
+}
+.movie img:hover{
+   transform: scale(1.5);
 }
 .movieDetails{
-  width: 300px;
+   
+  width: 200px;
 
+}
+.movieDetails h3{
+    margin: 0px;
 }
