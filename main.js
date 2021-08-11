@@ -1,7 +1,7 @@
 APIKEYLOTR ="JbeNSOlKgmtXkourFWex "
 APIURLLOTR ="https://the-one-api.dev/v2/movie"
 APIKEYOMDB ="&apikey=bfe5262b"
-APIURLOMBD ="http://www.omdbapi.com/?t="
+APIURLOMBD ="https://www.omdbapi.com/?t="
 //http://www.omdbapi.com/?t=The+Hobbit%3A+An+Unexpected+Journey
 //"http://www.omdbapi.com/?apikey=bfe5262b&?t=The+Hobbit%3A+An+Unexpected+Journey"
 const movieContainer = document.querySelector(".movieContainer")
