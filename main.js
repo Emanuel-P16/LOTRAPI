@@ -107,7 +107,7 @@ async function render(object,type){
 
 
 }
-getMovies()
-//getBooks()
+// getMovies()
+// getBooks()
 
 

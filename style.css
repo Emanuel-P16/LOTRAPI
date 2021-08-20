@@ -94,6 +94,62 @@ body{
     margin: 0px;
     
 }
+.buttonContainer{
+    display: flex;
+    gap: 3px;
+    height: 50px;
+    width: 110px;
+}
+.buttonAlign{
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+}
+.button{
+    height: 50px;
+    width: 50px;
+    background-color: rgb(58, 58, 58);
+    border: solid 2px rgb(168, 168, 168);
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    border-radius: 50%;
+    justify-content: center;
+    
+}
+.button:hover{
+    border-color: white;
+}
+.firstButton{
+    background-color: white;
+}
+.lastButton{
+    padding-left: 60px;
+}
+.contenedorImagen{
+    text-align: center;
+    align-self: center;
+    align-items: center;
+}
+.buttonIcon{
+    align-items: center;
+    text-align: center;
+    color: white;
+    
+}
+.buttonIconPlay{
+    align-items: center;
+    text-align: center;
+    color: black;
+    
+}
+.playMovie{
+ border: none;
+}
+.playMovie:hover{
+    background-color: grey;
+}
 @keyframes scaleMenuItem{
    100% { transform: scale(1.2)}
 }
