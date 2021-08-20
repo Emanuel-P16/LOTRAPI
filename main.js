@@ -6,8 +6,19 @@ APIKEYOMDB ="&apikey=bfe5262b"
 APIURLOMBD ="http://www.omdbapi.com/?t="
 //http://www.omdbapi.com/?t=The+Hobbit%3A+An+Unexpected+Journey
 //"http://www.omdbapi.com/?apikey=bfe5262b&?t=The+Hobbit%3A+An+Unexpected+Journey"
-const movieContainer = document.querySelector(".movieContainer")
+
 const generalContainer = document.querySelector(".generalContainer")
+
+// if (generalContainer != null) {generalContainer.addEventListener("mouseover",function(event){
+//     const moviesContainer = document.querySelector(".moviesContainer")
+//     // event.target.parentElement.style.transform = "scale(1.5)"
+//     // console.log(event)
+// })}
+// if (generalContainer != null) {generalContainer.addEventListener("mouseout",function(event){
+//     const moviesContainer = document.querySelector(".moviesContainer")
+//     // event.target.parentElement.style.transform = "scale(1)"
+//     // console.log(event)
+// })}
 async function getMovies(){
     const resp = await fetch(APIURLLORDMOVIES
     ,{
@@ -23,30 +34,20 @@ async function getMovies(){
     //console.log(respDataOMBD)
   
    });
-  
+   
 }
 
 async function getImageMovie(element){
     let searchInput = element
     const resp = await fetch(`${APIURLOMBD}${searchInput}${APIKEYOMDB}`)
     respDataOMBD = await resp.json()
-   //console.log(respDataOMBD)
     const newDiv = document.createElement("div");
     newDiv.classList.add("movie");
-    //console.log(respDataOMBD.Title)
     if (respDataOMBD.Title === undefined)  {
-        console.log("llegue acá")
+        
     }else {
         render(respDataOMBD,"movies")
-    /*newDiv.innerHTML = ` 
     
-    <img src=${respDataOMBD.Poster} alt="">
-    <div class="movieDetails">
-        <h3>${respDataOMBD.Title}</h3>
-        <span>${respDataOMBD.Metascore}</span>
-        `
-        //movieContainer.appendChild(newDiv)
-        movieContainer.appendChild(newDiv)*/
     }
 }
 async function getBooks(){
@@ -75,9 +76,10 @@ async function render(object,type){
         newContainer.innerHTML = newContainer.innerHTML + `
          <div class=${type}>
          <img src=${imageSource} alt="">
-            <div class="${type}details"
+            <div class="${type}Details">
+                <span>
                 <h3>${objectInfo.name}</h3>
-                <span></span>
+                </span>
             </div>
          </div>
         `
@@ -85,13 +87,15 @@ async function render(object,type){
         })
     } else {
         
-            console.log(object)
+            
             newContainer.innerHTML = newContainer.innerHTML + `
              <div class=${type}>
              <img src=${object.Poster} alt="">
-                <div class="${type}details"
+                <div class="${type}Details">
+                     <span>
                     <h3>${object.Title}</h3>
-                    <span></span>
+                    <h3>la concha de tu madre allboys</h3>
+                   </span>
                 </div>
              </div>
             `

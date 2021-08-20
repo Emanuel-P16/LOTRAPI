@@ -1,53 +1,82 @@
 body{
-    background-color: grey;
+    background-color: rgb(20, 20, 20);
 }
-.moviesContainer{
-    height: 250px;
-    width: 300px;
+.generalContainer{
     display: flex;
-    gap: 0.5px;
+    gap: 5px;
+}
+
+.moviesContainer{
+    width: 300px;
+    height: 500px;
+    display: flex;
+    gap: 10px;
+    transition: 250ms ;
 }
 .movies{
-    height: 202px;
     width: 300px;
-    background-color: grey;
+    height: 500px;
+    background-color: rgb(20, 20, 20);
 }
 
 .movies img{
-    height: 200px;
     width: 300px;
+    height: 445px;
     
     padding-top: 2px;
-    border-radius: 10px;
+    border-radius: 5px;
    
 }
-.movies img:hover{
-   transform: scale(1.5);
+
+
+/* .moviesContainer:hover div{
+    opacity: 1;
+    transform: scale(1.2);
+} */
+/* .moviesContainer span{
+    opacity: 0;
+}
+.moviesContainer span h3{
+    opacity: 0;
+} */
+.moviesDetails  {
+    opacity: 0;
 }
 .moviesDetails{
    
-  width: 200px;
+  height: 100px;
 
 }
 .moviesDetails h3{
     margin: 0px;
+    color: white;
 }
-
+.moviesContainer:hover {
+    /* animation-name: scaleMenuItem;
+    animation-duration: 1s;
+    animation-direction: alternate; */
+    transform: scale(1.2);
+}
+.moviesContainer:hover *  {
+    
+     opacity: 1;
+   
+ }
 .booksContainer{
-    height: 250px;
-    width: 300px;
+    width: 250px;
+    height: 300px;
     display: flex;
     gap: 0.5px;
 }
 .books{
-    height: 202px;
-    width: 300px;
+    width: 202px;
+    height: 300px;
     background-color: grey;
 }
 
 .books img{
-    height: 200px;
-    width: 300px;
+    width: 200px;
+    height: 300px;
     
     padding-top: 2px;
     border-radius: 10px;
@@ -58,9 +87,13 @@ body{
 }
 .booksDetails{
    
-  width: 200px;
+  height: 200px;
 
 }
 .booksDetails h3{
     margin: 0px;
+    
+}
+@keyframes scaleMenuItem{
+   100% { transform: scale(1.2)}
 }
